@@ -48,6 +48,10 @@ function Counter () {
 
         // Use the below approach if you want the updated value to be received 
         // by each of the setCount().
+        // Since we pass a function, we are sure that function will get completely
+        // executed by setCount() and thus before we reach the next setCount, we
+        // alredy have the updated value of the count instead of the current
+        // count.
         setCount((prevValue) => prevValue + 1);
         setCount((prevValue) => prevValue + 1);
         setCount((prevValue) => prevValue + 1);
