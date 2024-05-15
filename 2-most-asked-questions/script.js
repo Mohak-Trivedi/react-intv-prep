@@ -93,9 +93,7 @@ const MyComponent = () => {
     );
 };
 
-StatevsProps.propTypes = {
-    propExample: PropTypes.string,
-};
+
 
 const StatevsProps = (props) => {
 
@@ -108,6 +106,13 @@ const StatevsProps = (props) => {
         </ul>
     );
 };
+
+StatevsProps.propTypes = {
+    propExample: PropTypes.string,
+};
+
+
+
 
 // GrandparentComponent
 const GrandparentComponent = () => {
