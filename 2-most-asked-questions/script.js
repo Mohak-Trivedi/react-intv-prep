@@ -1,3 +1,6 @@
+// import XYZ from "./counter";
+// import { Counter2 } from "./counter";
+
 function App() {
     return (
         <div>
@@ -80,6 +83,42 @@ function App() {
                     propExample: PropTypes.string,
                 };
             */}
+            <h5>How do you use props in a class component?</h5>
+            {/* - [show e.g.] */}
+            <h5>In how many ways can we import/export a js module?</h5>
+            {/* - Default import/export: 
+                -- Use when you want to export something by default.
+                -- Multiple Default exports are not allowed from the same module.
+                -- We can refer to the default exported thing by any name.
+                -- Default export e.g.: export default Counter;
+                -- Default import e.g.: import Counter(or any other name) from './counter';
+                - Named import/export:
+                -- Use it when you have multiple things to be exported from a JS
+                module.
+                -- Named exports must be referred to by the exact same name while
+                importing them.
+                -- Named export e.g.: export {Counter};
+                -- Named import e.g.: import {Counter} from './counter';
+             */}
+             {/* <XYZ /> */}
+             {/* <Counter2 /> */}
+             <h5>What is Virtual DOM?</h5>
+             {/* - A logical representation of the actual DOM in the form of 
+             React elements.
+             - A programming concept where a virtual representation of the UI is
+             kept in the memory. It is an object that has React Elements to 
+             represent the UI.
+              */}
+            <h5>Reconciliation v/s Rendering</h5>
+            {/* - Reconciliation: Process of computing the diff b/w 2 VDOMs.
+            - Rendering: The actual updation of the information in the rendering
+            environment. */}
+            <h5>What is the Diffing algorithm?</h5>
+            {/* - Whenever a state or prop gets updated, an updated VDOM is generated.
+            - Diffing algo calculates the difference b/w the 2 VDOMs (previos and
+            updated VDOM).
+            - After calculating this diff only, the actual DOM is updated. This 
+            makes React capable of doing fast DOM manipulations.*/}
         </div>
     );
 }
@@ -180,10 +219,16 @@ class CounterNew extends React.Component {
     render() {
         return (
             <div>
-                <p>Count: {this.state.count}</p>
+                <DisplayCount countProp={this.state.count}/>
                 <button onClick={() => this.incrementCount()}>Increment</button>
             </div>
         );
+    }
+}
+
+class DisplayCount extends React.Component {
+    render() {
+        return <p>Count: {this.props.countProp}</p>;
     }
 }
 
