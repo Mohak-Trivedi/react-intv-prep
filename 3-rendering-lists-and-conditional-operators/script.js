@@ -7,6 +7,8 @@ const products = [
   {id: 6, name: "Product F", price: 40, category: "Electronics"},
 ];
 
+const names = ["Alice", "Bob", "Alice", "Charlie", "Bob"];
+
 function App () {
     return (
         <div>
@@ -51,6 +53,32 @@ function App () {
                 }, 0)}
                 </p>
             </div>
+            <h5>
+                Question 4: Add discountedPrice key with 10% discount to all the 
+                products with price more than 20 and render it.
+            </h5>
+            <ul>
+                {products
+                    .filter((product) => product.price > 20)
+                    .map((product) => {
+                        return {...product, discountedPrice: product.price - product.price*(10/100)};
+                    })
+                    .map((product) => {
+                        return <li key={product.id}><strong>{product.name}</strong> - {product.discountedPrice} - Discounted from:{" "} {product.price}</li>
+                    })
+                }
+            </ul>
+            <h5>
+                Question 5: How can you filter and render unique elements from an
+                array using filter in React?
+            </h5>
+            <ul>
+                {names.filter((name, idx) => {
+                    return names.indexOf(name) === idx;
+                }).map((name) => {
+                    return <li>{name}</li>
+                })}
+            </ul>
         </div>
         
     );
