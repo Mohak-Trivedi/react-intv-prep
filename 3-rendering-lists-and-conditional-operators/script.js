@@ -32,7 +32,7 @@ function App () {
                 ))} */}
             </ul>
             <h5>
-                Question 1: How can you filter products with a specific product 
+                Question 2: How can you filter products with a specific product 
                 category?
             </h5>
             <ul>
@@ -42,7 +42,15 @@ function App () {
                     return <li key={product.id}><strong>{product.name}</strong> - {product.price} - Category:{" "} {product.category}</li>
                 })}
             </ul>
-            
+            <h5>
+                Question 3: How can you render a summary of total prices of products?
+            </h5>
+            <div>
+                <p>Total Price Summary: {products.reduce((acc, product) => {
+                    return acc + product.price;
+                }, 0)}
+                </p>
+            </div>
         </div>
         
     );
