@@ -79,9 +79,68 @@ function App () {
                     return <li>{name}</li>
                 })}
             </ul>
+            {/* Conditional Operators */}
+            <h5>Question 6: Difference between && and ||</h5>
+            {/* - && both operands must be true to evaluate as true, else evaluates as false
+            - || both operands must be false to evaluate as false, else evaluates as true
+            - [show e.g. of both] */}
+            <LogicalAnd />
+            <LogicalOr />
+            <h5>Question 7: Difference between .? (optional chaining) and ?? (nullish coalescing)</h5>
+            {/* - [show e.g.] */}
+            <OptionalChaining />
+            <NullishCoalescing />
         </div>
         
     );
+}
+
+const OptionalChaining = () => {
+    let user = {
+        name: "John",
+        // address: {
+        //     city: "New York"
+        // },
+    };
+
+    // return <p>{user.address.city}</p> // No issues if address exists, but we get
+    // Uncaught TypeError: Cannot read properties of undefined (reading 'city')
+    // if it doesn't exist. Hence, use checks:
+    // return user && user.address && <p>{user.address.city}</p>;
+    // More compact by using optional chaining:
+    return <p>{user?.address?.city}</p>
+}
+
+const NullishCoalescing = () => {
+    let userInput = null;
+    let defaultValue = "Hello, default value!";
+
+    // if userInput is not falsy render it else render default value. Using  ternary operator:
+    // return <p>{ userInput ? userInput : defaultValue }</p>
+    // more compact, using Nullish Coalescing:
+    return <p>{userInput ?? defaultValue}</p>
+}
+
+const LogicalAnd = () => {
+    let x = 5;
+    let y = 10;
+
+    if (x > 0 && y > 0) {
+        return <span>Both are greater than 0</span>
+    } else {
+        return <></>;
+    }
+} 
+
+const LogicalOr = () => {
+    let isRaining = false;
+    let isSunny = true;
+
+    if(isRaining  || isSunny) {
+        return <span>It's either rainy or sunny or both!</span>
+    } else {
+        return <></>
+    }
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
